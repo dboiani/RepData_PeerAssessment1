@@ -16,7 +16,7 @@ Load the data (i.e. read.csv()).
 #download.file(activitydataUrl, destfile = "activity.zip")
 
 # extract the text file from the zip file
-#unzip("activity.zip")
+unzip("activity.zip")
 
 # read the source data 
 activityData <- read.csv("activity.csv", header = TRUE)
