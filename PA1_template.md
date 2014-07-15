@@ -53,14 +53,32 @@ Calculate and report the mean and median total number of steps taken per day.
 meanSteps <- mean(StepsbyDate)
 ```
 
-The mean total number of steps taken is 9354.2295.
+The mean total number of steps taken is **9354.2295**.  
+
+
+```r
+meanSteps
+```
+
+```
+## [1] 9354
+```
 
 
 ```r
 medianSteps <- median(StepsbyDate)
 ```
 
-The median total number of steps taken is 10395.
+The median total number of steps taken is **10395**.
+
+
+```r
+medianSteps
+```
+
+```
+## [1] 10395
+```
 
 # What is the average daily activity pattern? #
 ### 1. Time series plot ###
@@ -76,7 +94,7 @@ plot(levels(as.factor(activityData$interval)), StepsbyInterval, type = "l",
      main = "Average # of Steps per Interval")
 ```
 
-![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4.png) 
+![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6.png) 
 
 ### 2. 5-minute interval containing the maximum number of steps ###
 Which 5-minute interval, on average across all the days in the dataset, 
@@ -88,7 +106,16 @@ MaxStepInterval <- StepsbyInterval[which(StepsbyInterval == max(StepsbyInterval)
 ```
 
 Averaged across all days, the 5-minute interval containing the maximum 
-number of steps is interval number 835.
+number of steps is interval number **835**.
+
+
+```r
+names(MaxStepInterval)
+```
+
+```
+## [1] "835"
+```
 
 # Imputing missing values #
 ### 1. The total number of missing values ###
@@ -99,12 +126,21 @@ Calculate and report the total number of missing values in the dataset.
 missingvalues <- sum(is.na(activityData$steps))
 ```
 
-The total number of missing values is 2304.
+The total number of missing values is **2304**.
+
+
+```r
+missingvalues
+```
+
+```
+## [1] 2304
+```
 
 ### 2. Devise a strategy for filling in the missing values ###
 Devise a strategy for filling in all of the missing values in the dataset.
 
-I will use the means as calculated previously and saved as StepsbyInterval.
+**I will use the means as calculated previously and saved as StepsbyInterval.**
 
 
 ```r
@@ -138,7 +174,7 @@ StepsbyDate <- tapply(activityData$steps, activityData$date, sum, na.rm = T)
 hist(StepsbyDate, xlab = "Steps", main = "Total Number of Steps Taken Each Day")
 ```
 
-![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9.png) 
+![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13.png) 
 
 ### 4b. Calculate and mean and median total number of steps taken ###
 Calculate and report the mean and median total number of steps taken per day.
@@ -148,14 +184,32 @@ Calculate and report the mean and median total number of steps taken per day.
 meanSteps2 <- mean(StepsbyDate)
 ```
 
-The mean total number of steps taken each day is 1.0766 &times; 10<sup>4</sup>.
+The mean total number of steps taken each day is **1.0766 &times; 10<sup>4</sup>**.
+
+
+```r
+meanSteps2
+```
+
+```
+## [1] 10766
+```
 
 
 ```r
 medianSteps2 <- median(StepsbyDate)
 ```
 
-The median total number of steps taken each day is 1.0766 &times; 10<sup>4</sup>
+The median total number of steps taken each day is **1.0766 &times; 10<sup>4</sup>**
+
+
+```r
+medianSteps2
+```
+
+```
+## [1] 10766
+```
 
 ### 4c. Do these values differ from the first part of the assignment? ###
 Do these values differ from the estimates from the first part of the assignment?  
@@ -168,8 +222,8 @@ was 10395, while the new median is 1.0766 &times; 10<sup>4</sup>.
 What is the impact of imputing missing data on the estimates of the total daily 
 number of steps?
 
-The impact of imputing missing data increases the estimates of the mean/median
-of the total number of steps taken each day.
+**The impact of imputing missing data increases the estimates of the mean/median
+of the total number of steps taken each day.**
 
 # Are there differences between weekdays and weekends? #
 Are there differences in activity patterns between weekdays and weekends? 
@@ -208,5 +262,5 @@ plot(weekdayMeans, type = "l", main = "Weekday", xlab = "5 minute interval",
      ylab = "Average # of steps")
 ```
 
-![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13.png) 
+![plot of chunk unnamed-chunk-19](figure/unnamed-chunk-19.png) 
 
